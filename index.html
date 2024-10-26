@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('https://i.ibb.co/N1HXxfk/Roblox.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        .loader {
+            font-size: 50px;
+            color: white;
+            transition: opacity 1s ease-in-out;
+        }
+        .fixed {
+            display: inline;
+        }
+        .dynamic {
+            display: inline;
+        }
+        .overlay {
+            position: absolute;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 250px;
+            height: 350px;
+            background-color: gray;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: bottom 1s ease-in-out, opacity 1s ease-in-out;
+            opacity: 0;
+        }
+        .overlay img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .overlay-text {
+            font-size: 20px;
+            color: white;
+            margin-top: 10px;
+        }
+        .additional-text {
+            font-size: 16px;
+            color: white;
+            margin-top: 5px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .button {
+            background-color: #add8e6;
+            color: black;
+            font-size: 14px;
+            padding: 10px 50px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        .bottom-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .bottom-button {
+            background-color: #add8e6;
+            color: black;
+            font-size: 14px;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <span class="dynamic" id="loader-text"></span>
+    </div>
+    <div class="overlay" id="overlay">
+        <img src="https://i.ibb.co/SPS3cWc/IMG-20241026-165238.png" alt="Avatar">
+        <div class="overlay-text">Coder</div>
+        <div class="additional-text" id="additional-text"></div>
+        <div class="button-container">
+            <a href="https://www.roblox.com/users/7313173302/profile" class="button">Roblox</a>
+            <a href="https://www.tiktok.com/@transparent_3333?_t=8qrXfwyGci1&_r=1" class="button">Tiktok</a>
+            <a href="mailto:125435yhgt@gmail.com" class="button">Gmail</a>
+        </div>
+        <div class="bottom-buttons">
+            <a href="https://minecraft-flame.netlify.app/" class="bottom-button">Minecraft flame</a>
+            <a href="https://android-ball.netlify.app/" class="bottom-button">Android ball</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const loader = document.getElementById('loader');
+            const loaderText = document.getElementById('loader-text');
+            const overlay = document.getElementById('overlay');
+            const additionalText = document.getElementById('additional-text');
+            const text = 'Coder';
+            const additionalTexts = [
+                'I like playing Roblox',
+                'Likes programming HTML',
+                'Create 2 leisure websites'
+            ];
+            let index = 0;
+            let additionalIndex = 0;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    loaderText.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 200);
+                } else {
+                    setTimeout(() => {
+                        loaderText.innerHTML = '';
+                        index = 0;
+                        typeWriter();
+                    }, 1000);
+                }
+            }
+
+            function typeAdditionalText() {
+                if (additionalIndex < additionalTexts.length) {
+                    let currentText = additionalTexts[additionalIndex];
+                    let charIndex = 0;
+
+                    function typeChar() {
+                        if (charIndex < currentText.length) {
+                            additionalText.innerHTML += currentText.charAt(charIndex);
+                            charIndex++;
+                            setTimeout(typeChar, 100);
+                        } else {
+                            setTimeout(() => {
+                                additionalText.innerHTML = '';
+                                additionalIndex++;
+                                typeAdditionalText();
+                            }, 2000);
+                        }
+                    }
+
+                    typeChar();
+                } else {
+                    additionalIndex = 0;
+                    typeAdditionalText();
+                }
+            }
+
+            loaderText.innerHTML = '';
+            typeWriter();
+
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                overlay.style.bottom = '50%';
+                loader.style.opacity = '0';
+                typeAdditionalText();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
