@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coder</title>
-    <link rel="icon" type="image/png" href="https://i.ibb.co/CzWKqpM/Screenshot-2024-10-26-21-17-04-02-dba69a5e82e939c3ddef13f99a115ca3.jpg">
+    <title>Coder web</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
         body, html {
@@ -20,7 +19,7 @@
         .loader {
             font-size: 50px;
             color: white;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
         .fixed {
             display: inline;
@@ -42,13 +41,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 1s ease-in-out;
             opacity: 0;
         }
         .overlay img {
             width: 50px;
             height: 50px;
-            border-radius: 50%;
+            border-radius: 20px;
         }
         .overlay-text {
             font-size: 20px;
@@ -70,10 +69,10 @@
             background-color: #add8e6;
             color: black;
             font-size: 14px;
-            padding: 10px 50px;
+            padding: 10px 20px;
             margin: 5px 0;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
             text-decoration: none;
             font-family: 'Pixelify Sans', sans-serif;
@@ -88,10 +87,10 @@
             background-color: #add8e6;
             color: black;
             font-size: 14px;
-            padding: 10px 50px;
+            padding: 10px 20px;
             margin: 5px 0;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
             text-decoration: none;
             font-family: 'Pixelify Sans', sans-serif;
@@ -127,7 +126,8 @@
             const additionalTexts = [
                 'like playing Roblox',
                 'Learning HTML',
-                'Create two leisure websites'];
+                'Created two websites'
+            ];
             let index = 0;
             let additionalIndex = 0;
 
@@ -135,7 +135,7 @@
                 if (index < text.length) {
                     loaderText.innerHTML += text.charAt(index);
                     index++;
-                    setTimeout(typeWriter, 300);
+                    setTimeout(typeWriter, 200);
                 } else {
                     setTimeout(() => {
                         loaderText.innerHTML = '';
@@ -179,8 +179,11 @@
                 loader.style.opacity = '0';
                 typeAdditionalText();
             }, 2000);
+
+            // 强制性播放音乐
+            const audio = new Audio('/Dion Timmer - Shiawase (VIP) [Monstercat Release].mp3');
+            audio.play();
         });
     </script>
-    <!-- Creator: 125435yhgt@gmail.com coder -->
 </body>
 </html>
