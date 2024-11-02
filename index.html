@@ -41,7 +41,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
             opacity: 0;
         }
         .overlay img {
@@ -108,10 +108,11 @@
         <div class="button-container">
             <a href="https://www.roblox.com/users/7313173302/profile" class="button">Roblox</a>
             <a href="https://www.tiktok.com/@transparent_3333?_t=8qrXfwyGci1&_r=1" class="button">Tiktok</a>
-            <a href="mailto:125435yhgt@gmail.com" class="button">CDmail</a>
+            <a href="mailto:125435yhgt@gmail.com" class="button">Gmail</a>
         </div>
         <div class="bottom-buttons">
             <a href="https://minecraft-flame.netlify.app/" class="bottom-button">MF</a>
+            <a href="https://noob-ball.netlify.app/" class="bottom-button">NB</a>
             <a href="https://android-ball.netlify.app/" class="bottom-button">AB</a>
         </div>
     </div>
@@ -124,9 +125,9 @@
             const additionalText = document.getElementById('additional-text');
             const text = 'Coder';
             const additionalTexts = [
-                'like playing Roblox',
+                'Iike playing Roblox',
                 'Learning HTML',
-                'Created two websites'
+                'Create 3 websites'
             ];
             let index = 0;
             let additionalIndex = 0;
@@ -135,7 +136,7 @@
                 if (index < text.length) {
                     loaderText.innerHTML += text.charAt(index);
                     index++;
-                    setTimeout(typeWriter, 200);
+                    setTimeout(typeWriter, 300);
                 } else {
                     setTimeout(() => {
                         loaderText.innerHTML = '';
@@ -179,10 +180,6 @@
                 loader.style.opacity = '0';
                 typeAdditionalText();
             }, 2000);
-
-            // 强制性播放音乐
-            const audio = new Audio('https://raw.githubusercontent.com/ClassicBloxer/Coder/main/Shiawase.mp3');
-            audio.play();
         });
     </script>
 </body>
